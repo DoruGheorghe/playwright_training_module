@@ -1,0 +1,12 @@
+Playwright is a Node.js library to automate Chromium, Firefox and webKit with a single API. Built to enable cross-browser web testing.
+
+
+In VS Code, install Playwright extension. Press ctr+shift+P and type install Playwright. Install browsers deps for Chromium, Firefox and Safari.
+By default, tests are ran headless. To change this, from the playwright.config. ts, set:
+use: {
+    headless: false,
+      },
+
+In JavaScript, the ? is called the optional chaining operator. It is used to access properties of an object when it's uncertain whether
+ the object or any of its nested properties are null or undefined. If the property or method exists, it is accessed normally.
+  If the property or method does not exist, instead of throwing an error, undefined is returned.
