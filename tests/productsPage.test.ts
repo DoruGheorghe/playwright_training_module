@@ -1,6 +1,6 @@
 import { test, expect, chromium } from '@playwright/test';
 import { setupBrowser } from '../test_utils/chromeBrowserSetup.ts';
-import { fillProducts } from '../test_utils/productsPageUtils.ts';
+import { addToCart, addToCartAndCheckIt, fillProducts } from '../test_utils/productsPageUtils.ts';
 
 
 test('Go to Products page and assert that the search bar is visible', async () => {
@@ -65,4 +65,30 @@ test('Search product - negative test', async () => {
                 console.log('The first T-shirt product element was not found.');
         }
     await page.waitForTimeout(5000);
+});
+    
+test('Search product - add product to cart', async () => {
+
+        const { browser, context, page } = await setupBrowser();
+        await page.goto('./');
+        const pressProductsButton = page.getByText("Products");
+        await pressProductsButton.click();
+        await fillProducts(page);
+        await page.click("button[type='button']");
+        await page.click("(//a[contains(@class,'btn btn-default')])[1]");
+        await addToCart(page);
+    await page.waitForTimeout(5000);
+});
+test('Search product - add product to cart and assert that is visible in the cart', async () => {
+    const { browser, context, page } = await setupBrowser();
+    await page.goto('./');
+    const pressProductsButton = page.getByText("Products");
+    await pressProductsButton.click();
+    await fillProducts(page);
+    await page.click("button[type='button']");
+    await page.click("(//a[contains(@class,'btn btn-default')])[1]");
+    await addToCart(page);
+    await page.click("//u[text()='View Cart']");
+    await addToCartAndCheckIt(page);
+await page.waitForTimeout(5000);
 });
