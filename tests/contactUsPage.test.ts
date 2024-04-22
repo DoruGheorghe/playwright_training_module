@@ -9,7 +9,7 @@ test('Submit message', async () => {
     await page.goto('./');
     const locator = page.getByText("Contact us");
     await locator.click();
-    fillAndSubmitFormContactPage(page, 'wa', 'wa@wa.com', 'something', 'something something')
+    fillAndSubmitFormContactPage(page, 'qa', 'wa@wa.com', 'something', 'something something')
     await page.waitForTimeout(5000);
     chooseFile(page);
     await page.waitForTimeout(5000);
