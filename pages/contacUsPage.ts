@@ -2,15 +2,17 @@ import { chromium, Browser, BrowserContext, Page } from '@playwright/test';
 
 export async function fillAndSubmitFormContactPage(page: Page, name: string, email: string, subject: string,
      message: string) {
-    await page.fill("input[data-qa='login-email']", name);
-    await page.fill("input[name='password']", email);
-    await page.fill("input[data-qa='login-email']", subject);
-    await page.fill("input[name='password']", message);
+    await page.fill("input[data-qa='name']", name);
+    await page.fill("input[name='email']", email);
+    await page.fill("input[data-qa='subject']", subject);
+    await page.fill("//textarea[@data-qa='message']", message);
 }
 export async function chooseFile(page: Page) {
-   await page.click("upload_file");
+    const uploadFile = page.locator("//input[@type='file']");
+    await uploadFile.setInputFiles("C:\Users\dogheorghe\OneDrive - ENDAVA\Desktop\Notes.txt");
+
 }
 
 export async function submitContactForm(page: Page) {
-   await page.click("button[data-qa='submit-button']");
+   await page.click("//input[@data-qa='submit-button']");
 }
