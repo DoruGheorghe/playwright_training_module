@@ -1,0 +1,10 @@
+{
+    "API_tests": {
+      "baseUrl": "https://automationexercise.com/api",
+      "endpoints": {
+        "GETAllProductList": "/productsList",
+        "POSTToAllProductList": "/kiwi/",
+        "GETAllBrandsList": "/apple/"
+      }
+    }
+  }

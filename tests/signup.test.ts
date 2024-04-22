@@ -1,6 +1,6 @@
 import { test, expect, chromium } from '@playwright/test';
 import { setupBrowser } from '../test_utils/chromeBrowserSetup.ts';
-import { fillAndSubmitFormNewUserSignup } from '../test_utils/loginData.ts';
+import { fillAndSubmitFormNewUserSignup } from '../pages/loginPage.ts';
 
 
 test('User Signup', async () => {

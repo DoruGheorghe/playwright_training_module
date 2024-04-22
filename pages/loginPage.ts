@@ -1,4 +1,5 @@
-import { Page } from '@playwright/test';
+import { chromium, Browser, BrowserContext, Page } from '@playwright/test';
+
 
 export async function fillAndSubmitFormLoginToYourAccount(page: Page, email: string, password: string) {
     await page.fill("input[data-qa='login-email']", email);
@@ -10,4 +11,3 @@ export async function fillAndSubmitFormNewUserSignup(page: Page, name: string, e
     await page.fill("input[data-qa='signup-email']", email);
     await page.click("button[data-qa='signup-button']");
 }
-

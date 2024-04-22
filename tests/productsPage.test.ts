@@ -1,6 +1,6 @@
 import { test, expect, chromium } from '@playwright/test';
 import { setupBrowser } from '../test_utils/chromeBrowserSetup.ts';
-import { addToCart, addToCartAndCheckIt, fillProducts } from '../test_utils/productsPageUtils.ts';
+import { addToCart, addToCartAndCheckIt, fillProducts } from '../pages/productPage.ts';
 
 
 test('Go to Products page and assert that the search bar is visible', async () => {
