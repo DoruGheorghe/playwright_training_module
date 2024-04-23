@@ -1,6 +1,6 @@
 import { test, expect, chromium } from '@playwright/test';
 import { setupBrowser } from '../test_utils/chromeBrowserSetup.ts';
-import { fillAndSubmitFormContactPage, chooseFile, submitContactForm } from '../pages/contacUsPage.ts';
+import { fillAndSubmitFormContactPage, chooseFile, submitContactForm, getMessage } from '../pages/contacUsPage.ts';
 
 
 test('Submit message', async () => {
@@ -19,5 +19,7 @@ test('Submit message', async () => {
     });
     await page.waitForTimeout(5000);
     submitContactForm(page);
+    await page.waitForTimeout(5000);
+    getMessage(page);
     await page.waitForTimeout(5000);
 });
